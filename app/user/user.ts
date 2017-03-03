@@ -6,6 +6,7 @@ import {IUser} from './iuser';
  */
 export default class User implements IUser {
 
+    private _id: number;
     private _userName: string;
     private _userType: UserType;
     private _email: string;
@@ -14,6 +15,11 @@ export default class User implements IUser {
         
         this._userName = userName;
         this._userType = userType;
+    }
+
+    get id() : number {
+
+        return this._id;
     }
 
     get userType() : UserType {
@@ -28,6 +34,10 @@ export default class User implements IUser {
 
     get email() {
         return this._email;
+    }
+
+    set id(id: number) {
+        this._id = id;
     }
 
     set userName(userName: string) {

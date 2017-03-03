@@ -1,6 +1,7 @@
 import User from './user';
 import { UserType } from './userType';
 import { IUser } from './iuser';
+import { UsersRepository } from './userRepository';
 
 export class UserLoader {
 
@@ -10,12 +11,13 @@ export class UserLoader {
 
         let promise = new Promise<IUser>((resolve, reject) => {
 
-            let user = new User();
-            user.userName = "jimiz";
-            user.userType = UserType.silver;
-            user.email = "jimiz@cx.com";
+            UsersRepository.forEach(user => {
 
-            resolve(user);
+                if (user.id == id) {
+
+                    resolve(user);
+                }
+            });
         });
 
         return promise;

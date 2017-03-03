@@ -1,8 +1,13 @@
-import {UserLoader} from './user/userLoader';
+import { UserLoader } from './user/userLoader';
 
-new UserLoader().load(1).then((user) => {
+let user1 = new UserLoader().load(1);
+let user2 = new UserLoader().load(2);
+let user3 = new UserLoader().load(3);
 
-    console.log("user name: ", user.userName);
-    console.log("user type: ", user.userType);
 
+Promise.all([user1, user2, user3]).then((values) => {
+
+    values.forEach(user => {
+        console.log("user name: ", user.userName);
+    });
 });
