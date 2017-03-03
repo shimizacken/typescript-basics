@@ -1,9 +1,10 @@
-import {UserType} from './UserType';
+import {UserType} from './userType';
+import {IUser} from './iuser';
 
 /**
  * User
  */
-export default class User {
+export default class User implements IUser {
 
     private _userName: string;
     private _userType: UserType;
@@ -25,7 +26,7 @@ export default class User {
         return this._userName;
     }
 
-    get userEmail() {
+    get email() {
         return this._email;
     }
 
@@ -37,7 +38,7 @@ export default class User {
         this._userType = userType;
     }
 
-    set userEmail(email: string) {
+    set email(email: string) {
         this._email = email;
     }
 }
