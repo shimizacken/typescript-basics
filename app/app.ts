@@ -1,7 +1,6 @@
-import User from './user/user';
-import {UserType} from './user/userType';
+import {UserLoader} from './user/userLoader';
 
-var user1 = new User("shimiz", UserType.bronze);
+let user = new UserLoader().load(1);
 
-console.log(user1.userName);
-console.log(user1.userType);
+console.log("user name: ", user.userName);
+console.log("user type: ", user.userType);
